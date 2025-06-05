@@ -1,0 +1,13 @@
+# docker-compose.yml
+services:
+  filebrowser:
+    image: filebrowser/filebrowser
+    container_name: filebrowser
+    user: 1000:1000
+    ports:
+      - "8080:80"
+    volumes:
+      - ./srv:/srv # files will be stored here
+      - ./filebrowser.db:/database.db # users info/settings will be stored here
+      - ./filebrowser.json:/.filebrowser.json # config file
+    restart: always
