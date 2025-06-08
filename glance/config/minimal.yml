@@ -1,0 +1,70 @@
+- name: Minimal
+  # Optionally, if you only have a single page you can hide the desktop navigation for a cleaner look
+  # hide-desktop-navigation: true
+  columns:
+    - size: small
+      widgets:
+        - type: calendar
+          first-day-of-week: monday
+        
+        - type: monitor
+          cache: 1m
+          title: Mediabox
+          sites:
+            - title: Jellyfin
+              url: http://192.168.88.200:8096
+              icon: /assets/jellyfin-logo.png
+              allow-insecure: true
+
+            - title: File Browser
+              url: http://192.168.88.200:8888
+              icon: /assets/file-browser-logo.png
+              allow-insecure: true
+
+            - title: My website
+              url: https://shaunlowis.com
+              icon: /assets/rocket.svg
+
+    - size: full
+      widgets:
+        - type: search
+          search-engine: duckduckgo
+          new-tab: true
+          bangs:
+            - title: YouTube
+              shortcut: "!yt"
+              url: https://www.youtube.com/results?search_query={QUERY}
+
+        - type: videos
+          channels:
+            - UCPkaARl89RCckNE_D7tj-aA # Gorgc
+            - UC5Ghe5TBQGYIOANuiNW4hDQ # Gary's Economics
+            - UCxzC4EngIsMrPmbm6Nxvb-A # Scott Manley
+            - UCaYLBJfw6d8XqmNlL204lNg # ESL Dota 2
+        
+        - type: markets
+          markets:
+            - symbol: BTC-USD
+              name: Bitcoin
+            - symbol: AMD
+              name: AMD
+            - symbol: MSFT
+              name: Microsoft
+            - symbol: NVDA
+              name: NVIDIA
+            - symbol: NZG
+              name: Smart S&P/NZX 50
+            - symbol: TSM
+              name: TSMC
+            
+    - size: small
+      widgets:
+        - type: weather
+          location: Auckland, New Zealand
+          units: metric # alternatively "imperial"
+          hour-format: 12h # alternatively "24h"
+          # Optionally hide the location from being displayed in the widget
+          # hide-location: true
+        
+        - type: docker-containers
+          hide-by-default: false
